@@ -1,0 +1,49 @@
+{
+    "name": "opportus/sls-client",
+    "type": "library",
+    "description": "Colissimo Simple Label Solution (SLS) client",
+    "keywords": [
+        "colissimo",
+        "colissimo api",
+        "colissimo client",
+        "colissimo api client",
+        "simple label solution",
+        "simple label solution api",
+        "simple label solution client",
+        "simple label solution api client",
+        "colissimo simple label solution",
+        "colissimo simple label solution api",
+        "colissimo simple label solution client",
+        "colissimo simple label solution api client",
+        "sls",
+        "sls api",
+        "sls api client",
+        "colissimo sls",
+        "colissimo sls api",
+        "colissimo sls api client"
+    ],
+    "homepage": "https://github.com/opportus/sls-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clément Cazaud",
+            "email": "clement.cazaud@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Opportus\\SlsClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Opportus\\SlsClient\\Tests\\": "tests/",
+            "Opportus\\SlsClient\\Benchmarks\\": "benchmarks/"
+        }
+    }
+}
