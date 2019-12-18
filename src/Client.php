@@ -48,7 +48,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public static function create(): ClientInterface
+    public static function create()
     {
         $soapClient = new SoapClient(self::SERVICE_WSDL, [
             'exceptions' => false,
@@ -61,7 +61,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function generateLabel($parameters): GenerateLabelResponseInterface
+    public function generateLabel($parameters)
     {
         return $this->request(__FUNCTION__, $parameters);
     }
@@ -69,7 +69,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function checkGenerateLabel($parameters): CheckGenerateLabelResponseInterface
+    public function checkGenerateLabel($parameters)
     {
         return $this->request(__FUNCTION__, $parameters);
     }
@@ -82,7 +82,7 @@ class Client implements ClientInterface
      * @return ResponseInterface
      * @throws InvalidOperationException
      */
-    private function request($function, $parameters): ResponseInterface
+    private function request($function, $parameters)
     {
         $requestType  = \sprintf('Opportus\SlsClient\Request\%sRequest',   \ucfirst($function));
         $responseType = \sprintf('Opportus\SlsClient\Response\%sResponse', \ucfirst($function));

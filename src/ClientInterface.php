@@ -27,7 +27,7 @@ interface ClientInterface
      *
      * @return ClientInterface
      */
-    public static function create(): ClientInterface;
+    public static function create();
 
     /**
      * Generates a label.
@@ -36,7 +36,7 @@ interface ClientInterface
      * @return GenerateLabelResponseInterface
      * @throws InvalidArgumentException
      */
-    public function generateLabel($parameters): GenerateLabelResponseInterface;
+    public function generateLabel($parameters);
 
     /**
      * Checks generateLabel.
@@ -45,6 +45,6 @@ interface ClientInterface
      * @return CheckGenerateLabelResponseInterface
      * @throws InvalidArgumentException
      */
-    public function checkGenerateLabel($parameters): CheckGenerateLabelResponseInterface;
+    public function checkGenerateLabel($parameters);
 }
 
