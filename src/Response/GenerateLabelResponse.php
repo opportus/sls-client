@@ -144,7 +144,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
                             <messages>
                                 <id>([a-zA-Z0-9_]+)</id>
                                 <messageContent>[À-ÿèêa-zA-Z0-9:\. ]+</messageContent>
-                                <type>ERROR|WARNING</type>
+                                <type>ERROR</type>
                             </messages>
                         </return>
                     </ns2:generateLabelResponse>
