@@ -25,29 +25,29 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
     /**
      * @var SimpleXMLElement $envelope
      */
-    private $envelope;
+    private SimpleXMLElement $envelope;
 
     /**
      * @var string $messageId
      */
-    private $messageId;
+    private string $messageId;
 
     /**
      * @var null|string $label
      */
-    private $label;
+    private ?string $label;
 
     /**
      * @var null|string $parcelNumber
      */
-    private $parcelNumber;
+    private ?string $parcelNumber;
 
     /**
      * Constructs the response.
      *
      * @param string $rawResponse
      */
-    public function __construct($rawResponse)
+    public function __construct(string $rawResponse)
     {
         if (false === \is_string($rawResponse)) {
             throw new InvalidArgumentException(\sprintf(
@@ -71,7 +71,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getMessageId()
+    public function getMessageId(): string
     {
         return $this->messageId;
     }
@@ -79,7 +79,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
@@ -87,7 +87,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getParcelNumber()
+    public function getParcelNumber(): ?string
     {
         return $this->parcelNumber;
     }
@@ -98,7 +98,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
      * @param string $rawResponse
      * @throws InvalidArgumentException
      */
-    private function parseRawResponse($rawResponse)
+    private function parseRawResponse(string $rawResponse)
     {
         $rawResponseRegexPatterns = $this->getRawResponseRegexPatterns();
 
@@ -116,11 +116,9 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
                 $this->parcelNumber = $data[3];
             }
 
-
             return;
         }
 
-            echo \substr($rawResponse, 0, 1000);
         throw new InvalidArgumentException(\sprintf(
             '%s expects $rawResponse argument to match the following regex pattern: %s, got %s',
             __METHOD__,
@@ -134,7 +132,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
      *
      * @return array
      */
-    private function getRawResponseRegexPatterns()
+    private function getRawResponseRegexPatterns(): array
     {
         return \preg_replace('~[\r\n]+|[\s]{2,}~', '', [
             '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">

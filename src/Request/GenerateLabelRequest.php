@@ -33,7 +33,7 @@ class GenerateLabelRequest implements GenerateLabelRequestInterface
      * @param array $parameters
      * @throws InvalidArgumentException
      */
-    public function __construct($parameters)
+    public function __construct(array $parameters)
     {
         if (false === \is_array($parameters)) {
             throw new InvalidArgumentException(\sprintf(
@@ -59,7 +59,7 @@ class GenerateLabelRequest implements GenerateLabelRequestInterface
      *
      * @param array $parameters
      */
-    private function buildEnvelope($parameters)
+    private function buildEnvelope(array $parameters)
     {
         $this->envelope = new SimpleXMLElement('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" />');
         $this->envelope->addChild('soapenv:Header');
@@ -76,7 +76,7 @@ class GenerateLabelRequest implements GenerateLabelRequestInterface
      * @param array $parameters
      * @param SimpleXMLElement $parametersParentNode
      */
-    private function addParametersInEnvelope($parameters, $parametersParentNode)
+    private function addParametersInEnvelope(array $parameters, SimpleXMLElement $parametersParentNode)
     {
         foreach($parameters as $key => $value) {
             if(\is_array($value)) {

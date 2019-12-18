@@ -24,13 +24,13 @@ interface FaultResponseInterface extends ResponseInterface
      *
      * @return string
      */
-    public function getCode();
+    public function getCode(): string;
 
     /**
      * Gets the string.
      *
      * @return string
      */
-    public function getString();
+    public function getString(): string;
 }
 

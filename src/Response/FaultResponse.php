@@ -25,17 +25,17 @@ class FaultResponse implements FaultResponseInterface
     /**
      * @var SimpleXMLElement $envelope
      */
-    private $envelope;
+    private SimpleXMLElement $envelope;
 
     /**
      * @var string $code
      */
-    private $code;
+    private string $code;
 
     /**
      * @var string $string
      */
-    private $string;
+    private string $string;
 
     /**
      * Constructs the response.
@@ -43,7 +43,7 @@ class FaultResponse implements FaultResponseInterface
      * @param string $rawResponse
      * @throws InvalidArgumentException
      */
-    public function __construct($rawResponse)
+    public function __construct(array $rawResponse)
     {
         if (false === \is_string($rawResponse)) {
             throw new InvalidArgumentException(\sprintf(
@@ -67,7 +67,7 @@ class FaultResponse implements FaultResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -75,7 +75,7 @@ class FaultResponse implements FaultResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getString()
+    public function getString(): string
     {
         return $this->string;
     }
@@ -86,7 +86,7 @@ class FaultResponse implements FaultResponseInterface
      * @param string $rawResponse
      * @throws InvalidArgumentException
      */
-    private function parseRawResponse($rawResponse)
+    private function parseRawResponse(string $rawResponse)
     {
         $rawResponseRegexPattern = $this->getRawResponseRegexPattern();
 
@@ -109,7 +109,7 @@ class FaultResponse implements FaultResponseInterface
      *
      * @return string
      */
-    private function getRawResponseRegexPattern()
+    private function getRawResponseRegexPattern(): string
     {
         return \preg_replace('~[\r\n]+|[\s]{2,}~', '',
             '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">

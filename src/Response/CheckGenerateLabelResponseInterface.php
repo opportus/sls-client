@@ -24,20 +24,20 @@ interface CheckGenerateLabelResponseInterface extends ResponseInterface
      *
      * @return string
      */
-    public function getMessageId();
+    public function getMessageId(): string;
 
     /**
      * Gets the label.
      *
      * @return null|string
      */
-    public function getLabel();
+    public function getLabel(): ?string;
 
     /**
      * Gets the parcel number.
      *
      * @return null|string
      */
-    public function getParcelNumber();
+    public function getParcelNumber(): ?string;
 }
 
