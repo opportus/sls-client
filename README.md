@@ -74,7 +74,7 @@ $requestParameters = [
 $response = $client->generateLabel($requestParameters);
 
 $response->getMessageId();    // '0'
-$response->getLabel();        // 'https://example.com/label.pdf'
+$response->getLabel();        // <binary attachment>
 $response->getParcelNumber(); // '6A11111111111'
 ```
 
