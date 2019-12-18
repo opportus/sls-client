@@ -14,5 +14,5 @@ install:
     - composer install --prefer-dist --no-interaction --no-progress
 
 script:
-    - cd tests && php tests/test-old.php
+    - cd tests && php test-old.php
 
