@@ -109,18 +109,16 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
             $this->messageId = $data[1];
 
             if ('0' === $data[1]) {
-                if (\preg_match('~Content-ID: <'.$data[2].'>([\s\S]*?)--uuid~', $rawResponse, $attachments)) {
+                if (\preg_match('~Content-ID: <'.$data[2].'>(?!--uuid)(.*)--uuid~ms', $rawResponse, $attachments)) {
                     $this->label = $attachments[1];
                 }
 
                 $this->parcelNumber = $data[3];
             }
 
-
             return;
         }
 
-            echo \substr($rawResponse, 0, 1000);
         throw new InvalidArgumentException(\sprintf(
             '%s expects $rawResponse argument to match the following regex pattern: %s, got %s',
             __METHOD__,
@@ -136,7 +134,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
      */
     private function getRawResponseRegexPatterns()
     {
-        return \preg_replace('~[\r\n]+|[\s]{2,}~', '', [
+        return \preg_replace('~[\r\n]+|[\s]{2,}~', '', array(
             '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
                 <soap:Body>
                     <ns2:generateLabelResponse xmlns:ns2="http://sls.ws.coliposte.fr">
@@ -177,7 +175,7 @@ class GenerateLabelResponse implements GenerateLabelResponseInterface
                     </ns2:generateLabelResponse>
                 </soap:Body>
             </soap:Envelope>',
-        ]);
+        ));
     }
 }
 

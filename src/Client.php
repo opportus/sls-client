@@ -27,8 +27,8 @@ use SoapClient;
 class Client implements ClientInterface
 {
     const SERVICE_VERSION = '2.0';
-    const SERVICE_URI     = 'https://ws.colissimo.fr/sls-ws/SlsServiceWS/'.self::SERVICE_VERSION;
-    const SERVICE_WSDL    = self::SERVICE_URI.'?wsdl';
+    const SERVICE_URI     = 'https://ws.colissimo.fr/sls-ws/SlsServiceWS/2.0';
+    const SERVICE_WSDL    = 'https://ws.colissimo.fr/sls-ws/SlsServiceWS/2.0?wsdl';
 
     /**
      * @var SoapClient $soapClient
@@ -50,10 +50,10 @@ class Client implements ClientInterface
      */
     public static function create()
     {
-        $soapClient = new SoapClient(self::SERVICE_WSDL, [
+        $soapClient = new SoapClient(self::SERVICE_WSDL, array(
             'exceptions' => false,
             'trace'      => true,
-        ]);
+        ));
 
         return new self($soapClient);
     }

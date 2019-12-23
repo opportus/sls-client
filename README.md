@@ -12,7 +12,7 @@ A Colissimo Simple Label Solution (SLS) client.
 
 ### Requirements
 
-- PHP >= 5.4
+- PHP >= 5.3
 - libxml PHP extension installed and enabled
 - soap PHP extension installed and enabled
 - composer
@@ -34,42 +34,42 @@ use Opportus\SlsClient\Client;
 
 $client = Client::create();
 
-$requestParameters = [
+$requestParameters = array(
     'contractNumber' => '111111',
     'password'       => '1111111',
-    'outputFormat'   => [
+    'outputFormat'   => array(
         'x'                  => '0',
         'y'                  => '0',
         'outputPrintingType' => 'PDF_A4_300dpi',
-    ],
-    'letter' => [
-        'service' => [
+    ),
+    'letter' => array(
+        'service' => array(
             'productCode' => 'DOM',
             'depositDate' => '2019-01-01',
-        ],
-        'parcel' => [
+        ),
+        'parcel' => array(
             'weight' => '1',
-        ],
-        'sender' => [
-            'address' => [
+        ),
+        'sender' => array(
+            'address' => array(
                 'companyName' => 'FOO',
                 'line2'       => '1 RUE FOO',
                 'countryCode' => 'FR',
                 'city'        => 'FOO',
                 'zipCode'     => '00000',
-            ],
-        ],
-        'addressee' => [
-            'address' => [
+            ),
+        ),
+        'addressee' => array(
+            'address' => array(
                 'companyName' => 'BAR',
                 'line2'       => '1 RUE BAR',
                 'countryCode' => 'FR',
                 'city'        => 'BAR',
                 'zipCode'     => '00000',
-            ],
-        ],
-    ],
-];
+            ),
+        ),
+    ),
+);
 
 $response = $client->generateLabel($requestParameters);
 
