@@ -10,6 +10,7 @@
  */
 namespace Opportus\SlsClient;
 
+use Opportus\SlsClient\Exception\Exception;
 use Opportus\SlsClient\Exception\InvalidArgumentException;
 use Opportus\SlsClient\Response\CheckGenerateLabelResponseInterface;
 use Opportus\SlsClient\Response\GenerateLabelResponseInterface;
