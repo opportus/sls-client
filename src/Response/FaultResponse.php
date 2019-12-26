@@ -116,7 +116,7 @@ class FaultResponse implements FaultResponseInterface
                 <soap:Body>
                     <soap:Fault>
                         <faultcode>(soap:Client)</faultcode>
-                        <faultstring>([À-ÿa-zA-Z0-9\.:\-{}\' ]+)</faultstring>
+                        <faultstring>([À-ÿa-zA-Z0-9\.\:\-\{\}\'\, ]+)</faultstring>
                     </soap:Fault>
                 </soap:Body>
             </soap:Envelope>'
